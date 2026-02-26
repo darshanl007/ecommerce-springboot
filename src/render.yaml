@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ecommerce-springboot
+    runtime: java
+    plan: free
+    buildCommand: "./mvnw clean package"
+    startCommand: "java -jar target/ecommerce-0.0.1-SNAPSHOT.jar"
