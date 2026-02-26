@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-shop' viewBox='0 0 16 16'><path d='M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z'/></svg>" type="image/svg+xml">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <style>
+      :root {
+        --primary-color: #0ea5e9;
+        --secondary-color: #0369a1;
+        --accent-color: #06b6d4;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        background: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+      }
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+      }
+      .navbar-brand {
+        font-weight: 800;
+        color: var(--primary-color) !important;
+        font-size: 1.5rem;
+      }
+      .nav-link {
+        font-weight: 600;
+        color: var(--secondary-color) !important;
+      }
+      .nav-link:hover {
+        color: var(--primary-color) !important;
+      }
+      .error-section {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, #e0f2fe 0%, #f0f9ff 100%);
+        position: relative;
+        overflow: hidden;
+        min-height: calc(100vh - 140px);
+      }
+      .error-content {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+      .error-number {
+        font-size: 12rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        text-shadow: 4px 4px 0px var(--secondary-color);
+        margin: 0;
+        line-height: 1;
+        animation: float 3s ease-in-out infinite;
+      }
+      .error-message {
+        font-size: 2rem;
+        color: var(--secondary-color);
+        margin: 1rem 0 2rem;
+        font-weight: 600;
+      }
+      .home-button {
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+      }
+      .home-button:hover {
+        background: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+      }
+      .footer {
+        background: var(--secondary-color);
+        color: white;
+        padding: 1.5rem 0;
+        text-align: center;
+        margin-top: auto;
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+      .shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        border-radius: 50%;
+      }
+      .shape-1 {
+        width: 300px;
+        height: 300px;
+        background: var(--primary-color);
+        top: -150px;
+        left: -150px;
+      }
+      .shape-2 {
+        width: 200px;
+        height: 200px;
+        background: var(--accent-color);
+        bottom: -100px;
+        right: -100px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <i class="bi bi-shop me-2"></i>Ecommerce Store
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/login">
+                  <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/customer/register">
+                  <i class="bi bi-person-plus me-1"></i>Register
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="error-section">
+        <div class="shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+          <div class="error-content">
+            <h1 class="error-number">404</h1>
+            <p class="error-message">Oops! Page Not Found</p>
+            <a href="/" class="btn home-button">
+              <i class="bi bi-house-fill me-2"></i>Return Home
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="mb-0">
+          <i class="bi bi-c-circle me-1"></i>2025 Ecommerce Store. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

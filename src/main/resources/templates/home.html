@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Ecommerce Store</title>
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-shop' viewBox='0 0 16 16'><path d='M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z'/></svg>" type="image/svg+xml">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <style>
+      :root {
+        --primary-color: #0ea5e9;
+        --secondary-color: #0369a1;
+        --accent-color: #06b6d4;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: #f8f9fa;
+      }
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+      }
+      .navbar-brand {
+        font-weight: 800;
+        color: var(--primary-color) !important;
+        font-size: 1.5rem;
+      }
+      .nav-link {
+        font-weight: 600;
+        color: var(--secondary-color) !important;
+      }
+      .nav-link:hover {
+        color: var(--primary-color) !important;
+      }
+      .hero {
+        background: linear-gradient(45deg, #e0f2fe 0%, #f0f9ff 100%);
+        padding: 6rem 0;
+        color: var(--secondary-color);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero h1 {
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+        text-shadow: 4px 4px 0px var(--secondary-color);
+        position: relative;
+        z-index: 1;
+      }
+      .hero .lead {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
+        font-weight: 600;
+      }
+      .btn-primary {
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+      }
+      .btn-primary:hover {
+        background: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(3, 105, 161, 0.3);
+      }
+      .featured-products {
+        background-color: white;
+        padding: 4rem 0;
+      }
+      .featured-products h2 {
+        color: var(--primary-color);
+        font-weight: 800;
+        text-shadow: 2px 2px 0px var(--secondary-color);
+      }
+      .footer {
+        background: var(--secondary-color);
+        color: white;
+        padding: 1.5rem 0;
+        text-align: center;
+        margin-top: auto;
+      }
+      .alert {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      main {
+        flex: 1 0 auto;
+      }
+      .product-card {
+        transition: transform 0.2s;
+        margin-bottom: 15px;
+        height: 500px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(3, 105, 161, 0.2);
+      }
+      .product-image {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+      }
+      @media (max-width: 768px) {
+        .hero {
+          padding: 4rem 0;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .hero .lead {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/"><i class="bi bi-shop me-2"></i>Ecommerce Store</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/customer/register"><i class="bi bi-person-plus me-1"></i>Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container mt-4" th:if="${session.failure!=null || session.success!=null}">
+        <div class="alert alert-danger alert-dismissible fade show" th:if="${session.failure}" role="alert">
+          <span th:text="${session.failure}"></span>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="alert alert-success alert-dismissible fade show" th:if="${session.success}" role="alert">
+          <span th:text="${session.success}"></span>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div th:text="${@sessionMessageRemover.removeMessage()}"></div>
+      </div>
+
+      <section class="hero text-center">
+        <div class="container">
+          <h1 class="display-4">Welcome to our Ecommerce Store</h1>
+          <p class="lead">Find the best products at great prices!</p>
+          <a href="/login" class="btn btn-primary btn-lg"><i class="bi bi-cart-fill me-2"></i>Shop Now</a>
+        </div>
+      </section>
+
+      <section id="products" class="featured-products py-5" th:if="${products}">
+        <div class="container">
+          <h2 class="text-center mb-4">Featured Products</h2>
+          <div class="row">
+            <div class="col-md-4" th:each="product:${products}">
+              <div class="card product-card">
+                <img class="card-img-top product-image" th:src="${product.imageLink}" th:alt="${product.name}" />
+                <div class="card-body">
+                  <h5 th:text="${product.name}"></h5>
+                  <p th:text="${product.description}"></p>
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-primary" th:text="${product.category}"></span>
+                    <span class="fw-bold" th:text="'₹' + ${product.price}"></span>
+                  </div>
+                  <p>
+                    <small class="text-muted" th:text="'Stock: ' + ${product.stock}"></small>
+                  </p>
+                  <a href="/login" class="btn btn-primary w-100">
+                    <i class="bi bi-box-arrow-in-right me-1"></i>Login to buy
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="mb-0">
+          <i class="bi bi-c-circle me-1"></i>2025 Ecommerce Store. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          var alerts = document.querySelectorAll(".alert");
+          alerts.forEach(function (alert) {
+            var bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+          });
+        }, 2000);
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
