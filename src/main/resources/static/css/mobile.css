@@ -1,0 +1,22 @@
+/* mobile.css - contains styles that only apply on narrow viewports */
+
+@media (max-width: 576px) {
+  /* shrink hero text further */
+  .hero h1 { font-size: 2rem !important; }
+  .hero .lead { font-size: 1rem !important; }
+
+  /* forms and containers should nearly fill the screen */
+  .form-container { max-width: 90% !important; padding: 1rem !important; }
+
+  /* product cards should auto height to avoid clipping */
+  .product-card { height: auto !important; }
+
+  /* error pages smaller number */
+  .error-number { font-size: 6rem !important; }
+
+  /* adjust the navbar brand size */
+  .navbar-brand { font-size: 1.25rem !important; }
+
+  /* buttons full-width when useful */
+  .btn { width: 100%; }
+}
