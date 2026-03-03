@@ -151,7 +151,7 @@ public class CustomerServiceImpl implements CustomerService {
                 session.setAttribute("failure", "Out of Stock");
                 return "redirect:/customer/products";
             } else {
-                product.setStock(product.getStock() - 2);
+                product.setStock(product.getStock() - 1);
                 productRepository.save(product);
 
                 Customer customer = (Customer) session.getAttribute("customer");
@@ -176,7 +176,7 @@ public class CustomerServiceImpl implements CustomerService {
                     for (Item item : items) {
                         if (item.getName().equalsIgnoreCase(product.getName())) {
                             item.setPrice(item.getPrice() + product.getPrice());
-                            item.setQuantity(item.getQuantity() + 2);
+                            item.setQuantity(item.getQuantity() + 1);
                             flag = false;
                         }
                     }
@@ -301,6 +301,7 @@ public class CustomerServiceImpl implements CustomerService {
             Item item = itemRepository.findById(id).orElseThrow();
             Product product = productRepository.findByName(item.getName()).get(0);
             return addToCart(session, product.getId());
+
         } else {
             session.setAttribute("failure", "Invalid Session, Login Again");
             return "redirect:/login";

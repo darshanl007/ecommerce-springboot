@@ -267,13 +267,13 @@
 									<div class="d-grid">
 										<a
 											th:if="${!product.approved}"
-											th:href="'/admin/approve-reject/'+${product.id}"
+											th:href="'/admin/approve-product/'+${product.id}"
 											class="btn btn-light-green"
 											><i class="bi bi-check-circle me-1"></i>Approve</a
 										>
 										<a
 											th:if="${product.approved}"
-											th:href="'/admin/reject-approve/'+${product.id}"
+											th:href="'/admin/reject-product/'+${product.id}"
 											class="btn btn-light-red"
 											><i class="bi bi-x-circle me-1"></i>Reject</a
 										>
