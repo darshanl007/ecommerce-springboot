@@ -182,7 +182,7 @@
                               </div>
                           </div>
                           <div class="col-md-2">
-                              <p class="fw-bold" th:text="'₹' + ${item.quantity * item.price/item.quantity}"></p>
+                              <p class="fw-bold" th:text=" ${item.quantity * item.price/item.quantity} + '₹'"></p>
                           </div>
                       </div>
                   </div>
@@ -199,7 +199,7 @@
 
               <div class="d-flex justify-content-between mt-4">
                   <a href="/customer/products" class="btn btn-secondary">Continue Shopping</a>
-                  <a href="/customer/checkout" class="btn btn-primary">
+                  <a href="/customer/login" class="btn btn-primary">
                       <i class="bi bi-credit-card me-2"></i>Proceed to Checkout
                   </a>
               </div>

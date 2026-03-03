@@ -225,10 +225,18 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public String removeFromCart(HttpSession session, int id) {
-        if (session.getAttribute("customer") != null) {
+        if (session.getAttribute("customer") == null) {
+            session.setAttribute("failure", "Invalid Session, Login Again");
+            return "redirect:/login";
+        }
+
+        try {
             Product product = productRepository.findById(id).orElseThrow();
-            Customer customer = (Customer) session.getAttribute("customer");
+            Customer sessionCustomer = (Customer) session.getAttribute("customer");
+            Customer customer = customerRepository.findById(sessionCustomer.getId()).orElseThrow();
             List<Item> items = customer.getCart().getItems();
+            // Defensive cleanup: remove stale cart references to deleted Item rows.
+            items.removeIf(x -> x.getId() != 0 && !itemRepository.existsById(x.getId()));
             if (items.isEmpty()) {
                 session.setAttribute("failure", "No Item in Cart");
             } else {
@@ -252,7 +260,9 @@ public class CustomerServiceImpl implements CustomerService {
                     } else {
                         customer.getCart().getItems().remove(item2);
                         customerRepository.save(customer);
-                        itemRepository.delete(item2);
+                        if (itemRepository.existsById(item2.getId())) {
+                            itemRepository.deleteById(item2.getId());
+                        }
                     }
                 }
             }
@@ -260,9 +270,11 @@ public class CustomerServiceImpl implements CustomerService {
             customerRepository.save(customer);
             session.setAttribute("customer", customerRepository.findById(customer.getId()).orElseThrow());
             return "redirect:/customer/products";
-        } else {
-            session.setAttribute("failure", "Invalid Session, Login Again");
-            return "redirect:/login";
+        } catch (Exception e) {
+            session.setAttribute("failure", "Cart out of sync, refreshed cart");
+            Customer sessionCustomer = (Customer) session.getAttribute("customer");
+            session.setAttribute("customer", customerRepository.findById(sessionCustomer.getId()).orElseThrow());
+            return "redirect:/customer/cart";
         }
     }
 
