@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,102 +9,12 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-    <style>
-      :root {
-        --primary-color: #0ea5e9;
-        --secondary-color: #0369a1;
-        --accent-color: #06b6d4;
-      }
-      body {
-        font-family: 'Poppins', sans-serif;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        background: #f8f9fa;
-      }
-      .navbar {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-        backdrop-filter: blur(10px);
-      }
-      .navbar-brand {
-        font-weight: 800;
-        color: var(--primary-color) !important;
-        font-size: 1.5rem;
-      }
-      .nav-link {
-        font-weight: 600;
-        color: var(--secondary-color) !important;
-      }
-      .nav-link:hover {
-        color: var(--primary-color) !important;
-      }
-      .hero {
-        background: linear-gradient(45deg, #e0f2fe 0%, #f0f9ff 100%);
-        padding: 6rem 0;
-        color: var(--secondary-color);
-        position: relative;
-        overflow: hidden;
-      }
-      .hero h1 {
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-        color: var(--primary-color);
-        text-shadow: 4px 4px 0px var(--secondary-color);
-        position: relative;
-        z-index: 1;
-      }
-      .hero .lead {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        position: relative;
-        z-index: 1;
-        font-weight: 600;
-      }
-      .btn-primary {
-        background: var(--primary-color);
-        color: white;
-        padding: 1rem 2.5rem;
-        border-radius: 50px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
-        border: none;
-        box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
-      }
-      .btn-primary:hover {
-        background: var(--secondary-color);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(3, 105, 161, 0.3);
-      }
-      .footer {
-        background: var(--secondary-color);
-        color: white;
-        padding: 1.5rem 0;
-        text-align: center;
-        margin-top: auto;
-      }
-      .alert {
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      main {
-        flex: 1 0 auto;
-      }
-      @media (max-width: 768px) {
-        .hero {
-          padding: 4rem 0;
-        }
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-        .hero .lead {
-          font-size: 1.2rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
+    
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/next-ui.css" />
+</head>
+  <body class="next-ui">
+  <div class="top-glow"></div>
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -126,7 +36,8 @@
       </nav>
     </header>
 
-    <main>
+    <main class="page-main">
+  <div class="page-container container">
       <div class="container mt-4" th:if="${session.failure!=null || session.success!=null}">
         <div class="alert alert-danger alert-dismissible fade show" th:if="${session.failure}" role="alert">
           <span th:text="${session.failure}"></span>
@@ -136,10 +47,10 @@
           <span th:text="${session.success}"></span>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div th:text="${@sessionMessageRemover.removeMessage()}"></div>
+        <div class="session-message-remover" th:text="${@sessionMessageRemover.removeMessage()}"></div>
       </div>
 
-      <section class="hero text-center">
+      <section class="hero page-hero text-center">
         <div class="container">
           <h1 class="display-4">Admin Dashboard</h1>
           <p class="lead">Manage your store and products</p>
@@ -149,12 +60,13 @@
           </div>
         </div>
       </section>
-    </main>
+      </div>
+</main>
 
     <footer class="footer">
       <div class="container">
         <p class="mb-0">
-          <i class="bi bi-c-circle me-1"></i>2024 Ecommerce Store. All rights reserved.
+          <i class="bi bi-c-circle me-1"></i>2026 Ecommerce Store. All rights reserved.
         </p>
       </div>
     </footer>
@@ -172,5 +84,13 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <script src="/js/next-ui.js"></script>
+</body>
 </html>
+
+
+
+
+
+
+

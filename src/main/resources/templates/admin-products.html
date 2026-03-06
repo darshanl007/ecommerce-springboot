@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -18,148 +18,12 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
 		/>
-		<style>
-			:root {
-				--primary-color: #0ea5e9;
-				--secondary-color: #0369a1;
-				--accent-color: #06b6d4;
-			}
-			body {
-				font-family: 'Poppins', sans-serif;
-				display: flex;
-				flex-direction: column;
-				min-height: 100vh;
-				background: #f8f9fa;
-			}
-			.navbar {
-				background-color: rgba(255, 255, 255, 0.95) !important;
-				backdrop-filter: blur(10px);
-			}
-			.navbar-brand {
-				font-weight: 800;
-				color: var(--primary-color) !important;
-				font-size: 1.5rem;
-			}
-			.nav-link {
-				font-weight: 600;
-				color: var(--secondary-color) !important;
-			}
-			.nav-link:hover {
-				color: var(--primary-color) !important;
-			}
-			.hero {
-				background: linear-gradient(45deg, #e0f2fe 0%, #f0f9ff 100%);
-				padding: 6rem 0;
-				color: var(--secondary-color);
-				position: relative;
-				overflow: hidden;
-			}
-			.hero h1 {
-				font-weight: 800;
-				margin-bottom: 1.5rem;
-				color: var(--primary-color);
-				text-shadow: 4px 4px 0px var(--secondary-color);
-				position: relative;
-				z-index: 1;
-			}
-			.hero .lead {
-				font-size: 2rem;
-				margin-bottom: 2rem;
-				position: relative;
-				z-index: 1;
-				font-weight: 600;
-			}
-			.btn-primary {
-				background: var(--primary-color);
-				color: white;
-				padding: 1rem 2.5rem;
-				border-radius: 50px;
-				font-weight: 600;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				transition: all 0.3s ease;
-				border: none;
-				box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
-			}
-			.btn-primary:hover {
-				background: var(--secondary-color);
-				transform: translateY(-3px);
-				box-shadow: 0 6px 20px rgba(3, 105, 161, 0.3);
-			}
-			.featured-products {
-				background-color: white;
-				padding: 4rem 0;
-			}
-			.featured-products h2 {
-				color: var(--primary-color);
-				font-weight: 800;
-				text-shadow: 2px 2px 0px var(--secondary-color);
-			}
-			.footer {
-				background: var(--secondary-color);
-				color: white;
-				padding: 1.5rem 0;
-				text-align: center;
-				margin-top: auto;
-			}
-			.alert {
-				border-radius: 8px;
-				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			}
-			main {
-				flex: 1 0 auto;
-			}
-			.product-card {
-				transition: transform 0.2s;
-				margin-bottom: 15px;
-				height: 500px;
-				border-radius: 15px;
-				overflow: hidden;
-				box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
-			}
-			.product-card:hover {
-				transform: translateY(-5px);
-				box-shadow: 0 6px 20px rgba(3, 105, 161, 0.2);
-			}
-			.product-image {
-				width: 100%;
-				height: 200px;
-				object-fit: contain;
-			}
-			@media (max-width: 768px) {
-				.hero {
-					padding: 4rem 0;
-				}
-				.hero h1 {
-					font-size: 2.5rem;
-				}
-				.hero .lead {
-					font-size: 1.2rem;
-				}
-			}
-			.btn-light-green {
-				background-color: #90EE90;
-				color: #1a5a1a;
-				border: none;
-				font-weight: 600;
-			}
-			.btn-light-green:hover {
-				background-color: #7CCD7C;
-				color: #0d3d0d;
-			}
-			.btn-light-red {
-				background-color: #FFB6B6;
-				color: #8b0000;
-				border: none;
-				font-weight: 600;
-			}
-			.btn-light-red:hover {
-				background-color: #FF9999;
-				color: #5c0000;
-			}
-		</style>
-	</head>
-	<body>
+		
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/next-ui.css" />
+</head>
+	<body class="next-ui">
+  <div class="top-glow"></div>
 		<header>
 			<nav class="navbar navbar-expand-lg">
 				<div class="container">
@@ -194,7 +58,8 @@
 				</div>
 			</nav>
 		</header>
-		<main>
+		<main class="page-main">
+  <div class="page-container container">
 			<div
 				class="container mt-4"
 				th:if="${session.failure!=null || session.success!=null}"
@@ -225,15 +90,15 @@
 						aria-label="Close"
 					></button>
 				</div>
-				<div th:text="${@sessionMessageRemover.removeMessage()}"></div>
+				<div class="session-message-remover" th:text="${@sessionMessageRemover.removeMessage()}"></div>
 			</div>
-			<section class="hero text-center">
+			<section class="hero page-hero text-center">
 				<div class="container">
 					<h1 class="display-4">Product Approval</h1>
 					<p class="lead">Review and manage product approvals</p>
 				</div>
 			</section>
-			<section class="featured-products py-5">
+			<section class="featured-products section-shell py-5">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4" th:each="product:${products}">
@@ -255,7 +120,7 @@
 										></span>
 										<span
 											class="fw-bold"
-											th:text="'₹' + ${product.price}"
+											th:text="'&#8377;' + ${product.price}"
 										></span>
 									</div>
 									<p>
@@ -289,11 +154,12 @@
 					</div>
 				</div>
 			</section>
-		</main>
+		  </div>
+</main>
 		<footer class="footer">
 			<div class="container">
 				<p class="mb-0">
-					<i class="bi bi-c-circle me-1"></i>2024 Ecommerce Store. All rights
+					<i class="bi bi-c-circle me-1"></i>2026 Ecommerce Store. All rights
 					reserved.
 				</p>
 			</div>
@@ -310,5 +176,13 @@
 			});
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-	</body>
+	<script src="/js/next-ui.js"></script>
+</body>
 </html>
+
+
+
+
+
+
+
